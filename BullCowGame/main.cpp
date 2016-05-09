@@ -6,17 +6,17 @@ using namespace std;
 void PrintIntro();
 void PlayGame();
 string GetGuess();
-
-int tries = 1;
+bool AskToPlayAgain();
 
 //Entry point of application
 int main() 
 {
 	PrintIntro();
 	PlayGame();
-	cout << endl;
+	cout << AskToPlayAgain() << endl;
 	return 0;
 }
+
 
 // Introduce the game.
 void PrintIntro() {
@@ -45,3 +45,11 @@ string GetGuess() {
 	getline(cin, Guess);
 	return Guess;
 	}
+
+bool AskToPlayAgain()
+{
+	cout << "Do you want to play again?";
+	string Response = "";
+	getline(cin, Response);
+	return (Response[0] == 'y') || (Response[0] == 'Y');
+}
